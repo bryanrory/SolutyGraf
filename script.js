@@ -213,9 +213,12 @@
         if (aboutImg) aboutImg.src = data.about_image_url;
       }
 
-      // WhatsApp
+      // WhatsApp - adiciona 55 se não tiver código do país
+      var waNumber = '';
       if (data.whatsapp) {
-        var waUrl = 'https://wa.me/' + data.whatsapp;
+        waNumber = data.whatsapp.replace(/\D/g, '');
+        if (waNumber.length <= 11) waNumber = '55' + waNumber;
+        var waUrl = 'https://wa.me/' + waNumber;
         var navWa = document.getElementById('navWhatsapp');
         if (navWa) { navWa.href = waUrl; navWa.style.display = ''; }
         var floatWa = document.getElementById('whatsappFloat');
@@ -260,7 +263,7 @@
           if (formattedFixo) phoneLines += formattedFixo;
           if (formattedFixo && formattedPhone) phoneLines += '<br>';
           if (formattedPhone) phoneLines += formattedPhone;
-          var phoneHref = data.whatsapp ? 'https://wa.me/' + data.whatsapp : (data.telefone_fixo ? 'tel:' + data.telefone_fixo.replace(/\D/g, '') : '#');
+          var phoneHref = data.whatsapp ? 'https://wa.me/' + waNumber : (data.telefone_fixo ? 'tel:' + data.telefone_fixo.replace(/\D/g, '') : '#');
           var phoneTag = data.whatsapp ? 'a' : 'div';
           var phoneTarget = data.whatsapp ? ' target="_blank"' : '';
           contatoGrid.innerHTML +=

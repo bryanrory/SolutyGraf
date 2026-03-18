@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel Admin | Soluty Graf</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <h1>SOLUTY GRAF</h1>
+      <p>Painel Admin</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a href="#" class="sidebar-link active" data-section="dashboard">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Dashboard
+      </a>
+      <a href="#" class="sidebar-link" data-section="settings">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2m0 18v2M4.22 4.22l1.42 1.42m12.72 12.72l1.42 1.42M1 12h2m18 0h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        Configurações
+      </a>
+      <a href="#" class="sidebar-link" data-section="environments">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        Serviços
+      </a>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn-logout" id="btnLogout">Sair</button>
+    </div>
+  </aside>
+
+  <!-- Sidebar overlay (mobile) -->
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- Main -->
+  <div class="main">
+    <div class="topbar">
+      <button class="mobile-menu-btn" id="mobileMenuBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <h2 id="pageTitle">Dashboard</h2>
+      <div></div>
+    </div>
+
+    <div class="content">
+
+      <!-- ==================== DASHBOARD ==================== -->
+      <div class="admin-section active" id="sec-dashboard">
+        <div class="stats-grid" id="dashStats">
+          <div class="stat-card">
+            <h3>Serviços</h3>
+            <div class="value" id="statEnv">-</div>
+            <div class="desc">Total cadastrados</div>
+          </div>
+          <div class="stat-card">
+            <h3>Na Home</h3>
+            <div class="value" id="statHome">-</div>
+            <div class="desc">Visíveis na página inicial</div>
+          </div>
+          <div class="stat-card">
+            <h3>Fotos</h3>
+            <div class="value" id="statImg">-</div>
+            <div class="desc">Total de fotos</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== CONFIGURAÇÕES ==================== -->
+      <div class="admin-section" id="sec-settings">
+        <form id="settingsForm">
+          <!-- Imagens -->
+          <div class="form-section">
+            <h3>Imagens do Site</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>Logo</label>
+                <div class="upload-area" id="uploadLogo">
+                  <input type="file" accept="image/*">
+                  <div class="upload-icon">+</div>
+                  <p>Enviar logo</p>
+                  <img class="upload-preview" id="previewLogo">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Imagem Hero (Banner Principal)</label>
+                <div class="upload-area" id="uploadHero">
+                  <input type="file" accept="image/*">
+                  <div class="upload-icon">+</div>
+                  <p>Enviar imagem hero</p>
+                  <img class="upload-preview" id="previewHero">
+                </div>
+              </div>
+              <div class="form-group">
+                <label>Imagem Sobre</label>
+                <div class="upload-area" id="uploadAbout">
+                  <input type="file" accept="image/*">
+                  <div class="upload-icon">+</div>
+                  <p>Enviar imagem sobre</p>
+                  <img class="upload-preview" id="previewAbout">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contato & Redes Sociais -->
+          <div class="form-section">
+            <h3>Contato e Redes Sociais</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label>WhatsApp</label>
+                <input type="text" id="setWhatsapp" placeholder="5547991424101">
+              </div>
+              <div class="form-group">
+                <label>Telefone Fixo</label>
+                <input type="text" id="setTelefoneFixo" placeholder="4733221100">
+              </div>
+              <div class="form-group">
+                <label>E-mail</label>
+                <input type="email" id="setEmail" placeholder="contato@email.com">
+              </div>
+              <div class="form-group">
+                <label>Instagram (URL)</label>
+                <input type="url" id="setInstagram" placeholder="https://instagram.com/...">
+              </div>
+              <div class="form-group">
+                <label>Facebook (URL)</label>
+                <input type="url" id="setFacebook" placeholder="https://facebook.com/...">
+              </div>
+              <div class="form-group">
+                <label>TikTok (URL)</label>
+                <input type="url" id="setTiktok" placeholder="https://tiktok.com/@...">
+              </div>
+              <div class="form-group">
+                <label>Rua</label>
+                <input type="text" id="setRua" placeholder="Rua Exemplo">
+              </div>
+              <div class="form-group">
+                <label>Número</label>
+                <input type="text" id="setNumero" placeholder="123">
+              </div>
+              <div class="form-group">
+                <label>Bairro</label>
+                <input type="text" id="setBairro" placeholder="Centro">
+              </div>
+              <div class="form-group">
+                <label>Cidade</label>
+                <input type="text" id="setCidade" placeholder="Sua Cidade">
+              </div>
+              <div class="form-group">
+                <label>Estado</label>
+                <input type="text" id="setEstado" placeholder="SC">
+              </div>
+              <div class="form-group">
+                <label>CEP</label>
+                <input type="text" id="setCep" placeholder="00000-000">
+              </div>
+              <div class="form-group">
+                <label>Horário de Funcionamento</label>
+                <input type="text" id="setHorario" placeholder="Seg a Sex: 8h às 18h">
+              </div>
+            </div>
+          </div>
+
+          <div class="btn-group">
+            <button type="submit" class="btn btn-primary">Salvar Configurações</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- ==================== SERVIÇOS ==================== -->
+      <div class="admin-section" id="sec-environments">
+        <div class="list-header">
+          <h3>Serviços</h3>
+          <button class="btn btn-primary btn-sm" id="btnNewEnv">+ Novo Serviço</button>
+        </div>
+        <div class="item-list" id="envList">
+          <div class="loading"><div class="spinner"></div><p>Carregando...</p></div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- ==================== MODAL SERVIÇO ==================== -->
+  <div class="modal-overlay" id="modalEnv">
+    <div class="modal">
+      <h3 id="modalEnvTitle">Novo Serviço</h3>
+      <form id="envForm">
+        <input type="hidden" id="envId">
+        <div class="form-group">
+          <label>Nome do Serviço</label>
+          <input type="text" id="envName" required placeholder="Ex: Cartões de Visita">
+        </div>
+        <div class="form-group">
+          <label>Descrição</label>
+          <input type="text" id="envDescription" placeholder="Ex: Impressão offset e digital com acabamento premium">
+        </div>
+        <div class="form-group">
+          <div class="toggle-wrap">
+            <label class="toggle">
+              <input type="checkbox" id="envShowHome" checked>
+              <span class="toggle-slider"></span>
+            </label>
+            <span class="toggle-label">Mostrar na página inicial</span>
+          </div>
+        </div>
+        <div class="btn-group">
+          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="button" class="btn btn-secondary" onclick="closeModal('modalEnv')">Cancelar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==================== MODAL FOTOS DO SERVIÇO ==================== -->
+  <div class="modal-overlay" id="modalEnvPhotos">
+    <div class="modal modal-lg">
+      <h3 id="modalEnvPhotosTitle">Fotos do Serviço</h3>
+      <input type="hidden" id="envPhotosId">
+
+      <p class="photos-hint">Clique na estrela para definir a foto de capa do serviço.</p>
+
+      <div class="upload-area" id="uploadEnvImages">
+        <input type="file" accept="image/*" multiple>
+        <div class="upload-icon">+</div>
+        <p>Clique ou arraste para enviar fotos (pode selecionar várias)</p>
+      </div>
+
+      <div class="upload-progress" id="uploadProgress" style="display:none">
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <p id="progressText">Enviando...</p>
+      </div>
+
+      <div class="env-photo-gallery" id="envPhotoGallery"></div>
+
+      <div class="btn-group" style="justify-content:flex-end">
+        <button type="button" class="btn btn-secondary" onclick="closeModal('modalEnvPhotos')">Fechar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="../js/supabase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

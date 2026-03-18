@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos os Serviços | Soluty Graf</title>
+  <meta name="description" content="Todos os serviços - Soluty Graf">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,200..700;1,9..40,200..700&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .page-hero {
+      position: relative;
+      height: auto;
+      min-height: 100px;
+      padding-top: 80px;
+      padding-bottom: 20px;
+      overflow: hidden;
+      background: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .page-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(10,14,20,0.6) 0%, rgba(10,14,20,0.9) 100%);
+    }
+
+    .page-hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-hero-content h1 {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 400;
+    }
+
+    .page-hero-content .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      transition: opacity 0.3s;
+    }
+
+    .page-hero-content .back-link:hover {
+      opacity: 0.7;
+    }
+
+    .ambientes-section {
+      padding: clamp(32px, 4vw, 48px) 0;
+      background: var(--cream);
+    }
+
+    .ambientes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    a.card {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
+    .no-ambientes {
+      text-align: center;
+      padding: 60px 20px;
+      color: var(--gray-500);
+      font-size: 16px;
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 768px) {
+      .ambientes-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header id="header" class="scrolled">
+    <div class="container header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="" alt="Soluty Graf" class="logo" id="siteLogo" style="display:none">
+        <div class="logo-texto">
+          <span class="logo-nome">Soluty</span>
+          <span class="logo-destaque">GRAF</span>
+        </div>
+      </a>
+      <nav id="nav">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="index.html#sobre" class="nav-link">Sobre</a>
+        <a href="index.html#trabalhos" class="nav-link active">Trabalhos</a>
+        <a href="index.html#contato" class="nav-link">Contato</a>
+        <a href="#" target="_blank" class="nav-cta" id="navWhatsapp" style="display:none">
+          <span class="nav-cta-icon">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.136.558 4.143 1.534 5.886L.058 23.65l5.9-1.547A11.93 11.93 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.82c-1.978 0-3.81-.563-5.365-1.535l-.385-.23-3.498.917.935-3.412-.252-.4A9.772 9.772 0 012.18 12 9.82 9.82 0 0112 2.18 9.82 9.82 0 0121.82 12 9.82 9.82 0 0112 21.82z"/></svg>
+          </span>
+          Orçamento
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="page-hero">
+    <div class="page-hero-overlay"></div>
+    <div class="page-hero-content">
+      <a href="index.html#trabalhos" class="back-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+        Voltar
+      </a>
+      <h1>Todos os Serviços</h1>
+    </div>
+  </section>
+
+  <!-- Ambientes -->
+  <section class="ambientes-section">
+    <div class="container">
+      <div class="ambientes-grid" id="ambientesGrid">
+        <div class="no-ambientes">Carregando...</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 <span class="brand-nome">Soluty</span> <span class="brand-destaque">GRAF</span>. Todos os direitos reservados.</p>
+        <p class="footer-credits">Powered by Rory Systems</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/supabase-config.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      async function loadHeader() {
+        try {
+          var data = await api.get('/api/settings');
+          if (!data) return;
+          if (data.logo_url) {
+            var logo = document.getElementById('siteLogo');
+            logo.src = data.logo_url;
+            logo.style.display = '';
+          }
+          if (data.whatsapp) {
+            var navWa = document.getElementById('navWhatsapp');
+            navWa.href = 'https://wa.me/' + data.whatsapp;
+            navWa.style.display = '';
+          }
+        } catch (e) {}
+      }
+
+      async function loadAllAmbientes() {
+        try {
+          var data = await api.get('/api/environments?show_on_home=true');
+
+          var grid = document.getElementById('ambientesGrid');
+
+          if (!data || data.length === 0) {
+            grid.innerHTML = '<div class="no-ambientes">Nenhum serviço cadastrado.</div>';
+            return;
+          }
+
+          grid.innerHTML = '';
+          data.forEach(function (env) {
+            var card = document.createElement('a');
+            card.href = '/ambiente/' + (env.slug || env.id) + '/';
+            card.className = 'card';
+
+            card.innerHTML =
+              '<div class="card-img">' +
+                '<img src="' + (env.cover_image_url || '') + '" alt="' + env.name + '">' +
+                '<div class="card-overlay">' +
+                  '<div class="card-overlay-content">' +
+                    '<span class="card-category">' + env.name + '</span>' +
+                    '<span class="card-overlay-btn">Ver Fotos</span>' +
+                  '</div>' +
+                '</div>' +
+              '</div>' +
+              '<div class="card-info">' +
+                '<h3>' + env.name + '</h3>' +
+                '<p>' + (env.description || 'Serviço gráfico profissional') + '</p>' +
+              '</div>';
+
+            grid.appendChild(card);
+          });
+        } catch (err) {
+          console.error('Load error:', err);
+          document.getElementById('ambientesGrid').innerHTML =
+            '<div class="no-ambientes">Erro ao carregar serviços.</div>';
+        }
+      }
+
+      loadHeader();
+      loadAllAmbientes();
+    })();
+  </script>
+</body>
+</html>

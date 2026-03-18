@@ -1,0 +1,6 @@
+{
+  "trailingSlash": true,
+  "rewrites": [
+    { "source": "/ambiente/:slug/", "destination": "/ambiente.html" }
+  ]
+}

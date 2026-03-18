@@ -224,9 +224,17 @@
 
       // Format phone for display
       var formattedPhone = '';
-      if (data.whatsapp && data.whatsapp.length >= 13) {
-        var p = data.whatsapp;
-        formattedPhone = '(' + p.slice(2,4) + ') ' + p.slice(4,5) + ' ' + p.slice(5,9) + '-' + p.slice(9);
+      if (data.whatsapp) {
+        var w = data.whatsapp.replace(/\D/g, '');
+        if (w.length === 13) {
+          formattedPhone = '(' + w.slice(2,4) + ') ' + w.slice(4,5) + ' ' + w.slice(5,9) + '-' + w.slice(9);
+        } else if (w.length === 11) {
+          formattedPhone = '(' + w.slice(0,2) + ') ' + w.slice(2,3) + ' ' + w.slice(3,7) + '-' + w.slice(7);
+        } else if (w.length === 10) {
+          formattedPhone = '(' + w.slice(0,2) + ') ' + w.slice(2,6) + '-' + w.slice(6);
+        } else {
+          formattedPhone = data.whatsapp;
+        }
       }
 
       // Format landline for display: (XX) XXXX-XXXX

@@ -144,7 +144,9 @@
       if (!data) return;
 
       document.getElementById('setWhatsapp').value = data.whatsapp || '';
+      document.getElementById('setWhatsapp').dispatchEvent(new Event('input'));
       document.getElementById('setTelefoneFixo').value = data.telefone_fixo || '';
+      document.getElementById('setTelefoneFixo').dispatchEvent(new Event('input'));
       document.getElementById('setEmail').value = data.email || '';
       document.getElementById('setInstagram').value = data.instagram || '';
       document.getElementById('setFacebook').value = data.facebook || '';
@@ -182,8 +184,8 @@
 
     try {
       var updates = {
-        whatsapp: document.getElementById('setWhatsapp').value,
-        telefone_fixo: document.getElementById('setTelefoneFixo').value,
+        whatsapp: document.getElementById('setWhatsapp').value.replace(/\D/g, ''),
+        telefone_fixo: document.getElementById('setTelefoneFixo').value.replace(/\D/g, ''),
         email: document.getElementById('setEmail').value,
         instagram: document.getElementById('setInstagram').value,
         facebook: document.getElementById('setFacebook').value,

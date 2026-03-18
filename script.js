@@ -229,25 +229,37 @@
         formattedPhone = '(' + p.slice(2,4) + ') ' + p.slice(4,5) + ' ' + p.slice(5,9) + '-' + p.slice(9);
       }
 
+      // Format landline for display: (XX) XXXX-XXXX
+      var formattedFixo = '';
+      if (data.telefone_fixo) {
+        var f = data.telefone_fixo.replace(/\D/g, '');
+        if (f.length === 10) {
+          formattedFixo = '(' + f.slice(0,2) + ') ' + f.slice(2,6) + '-' + f.slice(6);
+        } else if (f.length === 12) {
+          formattedFixo = '(' + f.slice(2,4) + ') ' + f.slice(4,8) + '-' + f.slice(8);
+        } else {
+          formattedFixo = data.telefone_fixo;
+        }
+      }
+
       // Build contato grid dynamically
       var contatoGrid = document.getElementById('contatoGrid');
       if (contatoGrid) {
         contatoGrid.innerHTML = '';
 
-        if (data.whatsapp) {
+        if (data.telefone_fixo || data.whatsapp) {
+          var phoneLines = '';
+          if (formattedFixo) phoneLines += formattedFixo;
+          if (formattedFixo && formattedPhone) phoneLines += '<br>';
+          if (formattedPhone) phoneLines += formattedPhone;
+          var phoneHref = data.whatsapp ? 'https://wa.me/' + data.whatsapp : (data.telefone_fixo ? 'tel:' + data.telefone_fixo.replace(/\D/g, '') : '#');
+          var phoneTag = data.whatsapp ? 'a' : 'div';
+          var phoneTarget = data.whatsapp ? ' target="_blank"' : '';
           contatoGrid.innerHTML +=
-            '<a href="https://wa.me/' + data.whatsapp + '" target="_blank" class="contato-item" data-anim>' +
+            '<' + phoneTag + ' href="' + phoneHref + '"' + phoneTarget + ' class="contato-item" data-anim>' +
               '<div class="contato-icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>' +
-              '<h3>Telefone</h3><p>' + formattedPhone + '</p>' +
-            '</a>';
-        }
-
-        if (data.telefone_fixo) {
-          contatoGrid.innerHTML +=
-            '<div class="contato-item" data-anim>' +
-              '<div class="contato-icone"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg></div>' +
-              '<h3>Telefone Fixo</h3><p>' + data.telefone_fixo + '</p>' +
-            '</div>';
+              '<h3>Telefone</h3><p>' + phoneLines + '</p>' +
+            '</' + phoneTag + '>';
         }
 
         if (data.email) {
@@ -318,11 +330,11 @@
       var footerContato = document.getElementById('footerContato');
       if (footerContato) {
         var footerContatoHtml = '<h4>Contato</h4>';
+        if (formattedFixo) {
+          footerContatoHtml += '<p>' + formattedFixo + '</p>';
+        }
         if (data.whatsapp) {
           footerContatoHtml += '<a href="https://wa.me/' + data.whatsapp + '" target="_blank">' + formattedPhone + '</a>';
-        }
-        if (data.telefone_fixo) {
-          footerContatoHtml += '<p>' + data.telefone_fixo + '</p>';
         }
         if (data.email) {
           footerContatoHtml += '<a href="mailto:' + data.email + '">' + data.email + '</a>';

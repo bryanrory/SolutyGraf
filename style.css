@@ -131,39 +131,22 @@ header.scrolled .header-inner {
 .logo-link {
   display: flex;
   align-items: center;
-  gap: 14px;
   text-decoration: none;
   position: relative;
   z-index: 1001;
+  flex-shrink: 0;
 }
 
 .logo {
-  height: 40px;
+  height: 60px;
+  max-width: 200px;
   width: auto;
+  object-fit: contain;
+  transition: height 0.4s var(--ease);
 }
 
-.logo-texto {
-  display: flex;
-  flex-direction: column;
-  line-height: 1;
-}
-
-.logo-nome {
-  font-family: var(--font-body);
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--white);
-  letter-spacing: 1px;
-}
-
-.logo-destaque {
-  font-family: var(--font-body);
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 4px;
-  margin-top: 2px;
-  text-transform: uppercase;
+header.scrolled .logo {
+  height: 48px;
 }
 
 /* Nav */
@@ -281,16 +264,10 @@ nav {
    ======================================== */
 
 .brand-nome {
-  font-family: var(--font-body);
+  font-family: 'Trajan Pro', 'Cinzel', serif;
   font-weight: 700;
   font-style: normal;
-}
-
-.brand-destaque {
-  font-family: var(--font-body);
-  font-weight: 600;
   letter-spacing: 2px;
-  text-transform: uppercase;
 }
 
 /* ========================================
@@ -1040,27 +1017,14 @@ footer {
 }
 
 .footer-logo-wrap {
-  display: flex;
-  flex-direction: column;
   margin-bottom: 18px;
 }
 
-.footer-logo {
-  font-family: var(--font-body);
-  font-size: 32px;
-  font-weight: 700;
-  color: var(--white);
-  line-height: 1;
-}
-
-.footer-logo-sub {
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  color: var(--accent);
-  letter-spacing: 4px;
-  margin-top: 4px;
-  text-transform: uppercase;
+.footer-logo-img {
+  height: 110px;
+  max-width: 360px;
+  width: auto;
+  object-fit: contain;
 }
 
 .footer-desc {
@@ -1342,6 +1306,16 @@ footer {
 
 @media (max-width: 768px) {
 
+  /* Logo */
+  .logo {
+    height: 44px;
+    max-width: 160px;
+  }
+
+  header.scrolled .logo {
+    height: 38px;
+  }
+
   /* Menu */
   .menu-toggle {
     display: flex;
@@ -1492,6 +1466,15 @@ footer {
    ======================================== */
 
 @media (max-width: 480px) {
+  .logo {
+    height: 38px;
+    max-width: 140px;
+  }
+
+  header.scrolled .logo {
+    height: 32px;
+  }
+
   .hero {
     min-height: 400px;
   }

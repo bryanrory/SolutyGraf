@@ -192,6 +192,13 @@
         logo.style.display = '';
       }
 
+      // Footer logo
+      var footerLogoImg = document.getElementById('footerLogoImg');
+      if (footerLogoImg && data.logo_url) {
+        footerLogoImg.src = data.logo_url;
+        footerLogoImg.style.display = '';
+      }
+
       // Hero image
       if (data.hero_image_url) {
         var heroImg = document.getElementById('heroImg');

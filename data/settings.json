@@ -14,5 +14,8 @@
   "endereco_cidade": "Blumenau",
   "endereco_estado": "SC",
   "endereco_cep": "",
-  "horario_funcionamento": "Seg a Sex: 8h às 18h | Sáb: 8h às 12h"
+  "horario_funcionamento": "Seg a Sex: 8h às 18h | Sáb: 8h às 12h",
+  "google_reviews_enabled": false,
+  "elfsight_code": "",
+  "nota_google": ""
 }

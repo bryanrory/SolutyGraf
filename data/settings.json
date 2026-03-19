@@ -1,1 +1,21 @@
-{"logo_url":"/img/logo/logo.png","hero_image_url":"/img/hero/hero.jpg","about_image_url":"/img/sobre/sobre.jpg","whatsapp":"47996971277","telefone_fixo":"4730410320","email":"solutygraf@gmail.com","instagram":"https://www.instagram.com/solutygraf/","facebook":"https://www.facebook.com/profile.php?id=100054198683750","tiktok":"","endereco_rua":"Rua 25 de Agosto","endereco_numero":"1606","endereco_bairro":"Fortaleza","endereco_cidade":"Blumenau","endereco_estado":"SC","endereco_cep":"","horario_funcionamento":"Seg a Sex: 8h às 18h | Sáb: 8h às 12h","google_reviews_enabled":true,"elfsight_code":"<!-- Elfsight Google Reviews | Untitled Google Reviews -->\n<script src=\"https://elfsightcdn.com/platform.js\" async></script>\n<div class=\"elfsight-app-958d8630-473d-445f-8ac0-39bd2ecff12b\" data-elfsight-app-lazy></div>","nota_google":"4,9"}
+{
+  "logo_url": "/img/logo/logo.png",
+  "hero_image_url": "/img/hero/hero.jpg",
+  "about_image_url": "/img/sobre/sobre.jpg",
+  "whatsapp": "47996971277",
+  "telefone_fixo": "4730410320",
+  "email": "solutygraf@gmail.com",
+  "instagram": "https://www.instagram.com/solutygraf/",
+  "facebook": "https://www.facebook.com/profile.php?id=100054198683750",
+  "tiktok": "",
+  "endereco_rua": "Rua 25 de Agosto",
+  "endereco_numero": "1606",
+  "endereco_bairro": "Fortaleza",
+  "endereco_cidade": "Blumenau",
+  "endereco_estado": "SC",
+  "endereco_cep": "",
+  "horario_funcionamento": "Seg a Sex: 8h às 18h | Sáb: 8h às 12h",
+  "google_reviews_enabled": true,
+  "elfsight_code": "<!-- Elfsight Google Reviews | Untitled Google Reviews -->\n<script src=\"https://elfsightcdn.com/platform.js\" async></script>\n<div class=\"elfsight-app-958d8630-473d-445f-8ac0-39bd2ecff12b\" data-elfsight-app-lazy></div>",
+  "nota_google": "4,9"
+}

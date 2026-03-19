@@ -1,1 +1,53 @@
-[]
+[
+  {
+    "id": "cartoes-de-visita",
+    "name": "Cartões de Visita",
+    "description": "Design profissional e impressão de alta qualidade para causar a melhor primeira impressão.",
+    "slug": "cartoes-de-visita",
+    "show_on_home": true,
+    "cover_image_url": "/img/servicos/cartoes-de-visita/capa.jpg",
+    "images": [
+      {
+        "id": "cv1",
+        "image_url": "/img/servicos/cartoes-de-visita/capa.jpg",
+        "is_cover": true,
+        "created_at": "2026-01-01T00:00:00.000Z"
+      }
+    ],
+    "created_at": "2026-01-01T00:00:00.000Z"
+  },
+  {
+    "id": "panfletos-e-folders",
+    "name": "Panfletos e Folders",
+    "description": "Materiais promocionais com cores vibrantes e acabamento impecável para divulgar sua marca.",
+    "slug": "panfletos-e-folders",
+    "show_on_home": true,
+    "cover_image_url": "/img/servicos/panfletos-e-folders/capa.jpg",
+    "images": [
+      {
+        "id": "pf1",
+        "image_url": "/img/servicos/panfletos-e-folders/capa.jpg",
+        "is_cover": true,
+        "created_at": "2026-01-02T00:00:00.000Z"
+      }
+    ],
+    "created_at": "2026-01-02T00:00:00.000Z"
+  },
+  {
+    "id": "revistas-e-catalogos",
+    "name": "Revistas e Catálogos",
+    "description": "Impressão editorial com acabamento premium para apresentar seus produtos com sofisticação.",
+    "slug": "revistas-e-catalogos",
+    "show_on_home": true,
+    "cover_image_url": "/img/servicos/revistas-e-catalogos/capa.jpg",
+    "images": [
+      {
+        "id": "rc1",
+        "image_url": "/img/servicos/revistas-e-catalogos/capa.jpg",
+        "is_cover": true,
+        "created_at": "2026-01-03T00:00:00.000Z"
+      }
+    ],
+    "created_at": "2026-01-03T00:00:00.000Z"
+  }
+]

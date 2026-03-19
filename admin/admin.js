@@ -207,9 +207,9 @@
       var heroFile = document.querySelector('#uploadHero input[type="file"]').files[0];
       var aboutFile = document.querySelector('#uploadAbout input[type="file"]').files[0];
 
-      if (logoFile) updates.logo_url = await api.uploadFile(logoFile, 'logo');
-      if (heroFile) updates.hero_image_url = await api.uploadFile(heroFile, 'hero');
-      if (aboutFile) updates.about_image_url = await api.uploadFile(aboutFile, 'about');
+      try { if (logoFile) updates.logo_url = await api.uploadFile(logoFile, 'logo'); } catch (e) { console.warn('Upload logo indisponível'); }
+      try { if (heroFile) updates.hero_image_url = await api.uploadFile(heroFile, 'hero'); } catch (e) { console.warn('Upload hero indisponível'); }
+      try { if (aboutFile) updates.about_image_url = await api.uploadFile(aboutFile, 'about'); } catch (e) { console.warn('Upload about indisponível'); }
 
       await api.put('/api/settings', updates);
       toast('Configurações salvas com sucesso!');

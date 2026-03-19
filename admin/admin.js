@@ -510,7 +510,8 @@
     try {
       var updates = {
         google_reviews_enabled: document.getElementById('reviewsEnabled').checked,
-        elfsight_code: document.getElementById('elfsightCode').value
+        elfsight_code: document.getElementById('elfsightCode').value,
+        nota_google: document.getElementById('notaGoogle').value
       };
 
       await api.put('/api/settings', updates);
@@ -530,6 +531,7 @@
       if (settings) {
         document.getElementById('reviewsEnabled').checked = settings.google_reviews_enabled || false;
         document.getElementById('elfsightCode').value = settings.elfsight_code || '';
+        document.getElementById('notaGoogle').value = settings.nota_google || '';
       }
     } catch (err) {
       console.error('Review settings load error:', err);

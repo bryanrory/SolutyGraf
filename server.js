@@ -45,7 +45,8 @@ initFile(SETTINGS_FILE, {
   endereco_cep: '',
   horario_funcionamento: 'Seg a Sex: 8h às 18h | Sáb: 8h às 12h',
   google_reviews_enabled: false,
-  elfsight_code: ''
+  elfsight_code: '',
+  nota_google: ''
 });
 
 initFile(ENVIRONMENTS_FILE, []);
@@ -62,6 +63,7 @@ initFile(ADMIN_FILE, {
   let changed = false;
   if (settings.google_reviews_enabled === undefined) { settings.google_reviews_enabled = false; changed = true; }
   if (settings.elfsight_code === undefined) { settings.elfsight_code = ''; changed = true; }
+  if (settings.nota_google === undefined) { settings.nota_google = ''; changed = true; }
   if (changed) fs.writeFileSync(SETTINGS_FILE, JSON.stringify(settings, null, 2));
 })();
 

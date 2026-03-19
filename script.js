@@ -253,6 +253,12 @@
         }
       }
 
+      // Nota do Google
+      var notaEl = document.getElementById('statNotaGoogle');
+      if (notaEl && data.nota_google) {
+        notaEl.textContent = data.nota_google;
+      }
+
       // Build contato grid dynamically
       var contatoGrid = document.getElementById('contatoGrid');
       if (contatoGrid) {

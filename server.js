@@ -43,7 +43,9 @@ initFile(SETTINGS_FILE, {
   endereco_cidade: '',
   endereco_estado: '',
   endereco_cep: '',
-  horario_funcionamento: 'Seg a Sex: 8h às 18h | Sáb: 8h às 12h'
+  horario_funcionamento: 'Seg a Sex: 8h às 18h | Sáb: 8h às 12h',
+  google_reviews_enabled: false,
+  elfsight_code: ''
 });
 
 initFile(ENVIRONMENTS_FILE, []);
@@ -53,6 +55,15 @@ initFile(ADMIN_FILE, {
   // SHA-256 de "admin123"
   password_hash: '240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9'
 });
+
+// Migração: garantir campos novos em settings existente
+(function migrateSettings() {
+  const settings = JSON.parse(fs.readFileSync(SETTINGS_FILE, 'utf-8'));
+  let changed = false;
+  if (settings.google_reviews_enabled === undefined) { settings.google_reviews_enabled = false; changed = true; }
+  if (settings.elfsight_code === undefined) { settings.elfsight_code = ''; changed = true; }
+  if (changed) fs.writeFileSync(SETTINGS_FILE, JSON.stringify(settings, null, 2));
+})();
 
 // Helpers
 function readJSON(file) {

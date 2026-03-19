@@ -23,7 +23,8 @@
   var sectionTitles = {
     dashboard: 'Dashboard',
     settings: 'Configurações do Site',
-    environments: 'Serviços'
+    environments: 'Serviços',
+    reviews: 'Avaliações Google'
   };
 
   function switchSection(name) {
@@ -39,6 +40,7 @@
     if (name === 'dashboard') loadDashboard();
     if (name === 'settings') loadSettings();
     if (name === 'environments') loadEnvironments();
+    if (name === 'reviews') loadReviews();
   }
 
   sidebarLinks.forEach(function (link) {
@@ -130,6 +132,7 @@
       document.getElementById('statEnv').textContent = counts.total || 0;
       document.getElementById('statHome').textContent = counts.home || 0;
       document.getElementById('statImg').textContent = counts.images || 0;
+
     } catch (err) {
       console.error('Dashboard error:', err);
     }
@@ -491,6 +494,45 @@
       await loadEnvPhotos(envId);
     } catch (err) {
       toast('Erro ao remover foto', 'error');
+    }
+  }
+
+
+  // ========================================
+  // GOOGLE REVIEWS (ELFSIGHT)
+  // ========================================
+
+  document.getElementById('btnSaveReviewSettings').addEventListener('click', async function () {
+    var btn = this;
+    btn.disabled = true;
+    btn.textContent = 'Salvando...';
+
+    try {
+      var updates = {
+        google_reviews_enabled: document.getElementById('reviewsEnabled').checked,
+        elfsight_code: document.getElementById('elfsightCode').value
+      };
+
+      await api.put('/api/settings', updates);
+      toast('Configurações de avaliações salvas!');
+    } catch (err) {
+      console.error('Review settings save error:', err);
+      toast('Erro ao salvar configurações', 'error');
+    }
+
+    btn.disabled = false;
+    btn.textContent = 'Salvar Configurações';
+  });
+
+  async function loadReviews() {
+    try {
+      var settings = await api.get('/api/settings');
+      if (settings) {
+        document.getElementById('reviewsEnabled').checked = settings.google_reviews_enabled || false;
+        document.getElementById('elfsightCode').value = settings.elfsight_code || '';
+      }
+    } catch (err) {
+      console.error('Review settings load error:', err);
     }
   }
 

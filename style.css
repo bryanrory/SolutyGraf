@@ -1021,8 +1021,8 @@ footer {
 }
 
 .footer-logo-img {
-  height: 110px;
-  max-width: 360px;
+  height: 143px;
+  max-width: 468px;
   width: auto;
   object-fit: contain;
 }
@@ -1515,4 +1515,22 @@ footer {
   .sobre-img-frame {
     display: none;
   }
+}
+
+/* ========================================
+   AVALIAÇÕES
+   ======================================== */
+
+.avaliacoes {
+  padding: var(--section-py) 0;
+  background: var(--white);
+  overflow: hidden;
+}
+
+.avaliacoes h2 {
+  color: var(--dark);
+}
+
+#avaliacoesWidget {
+  min-height: 100px;
 }

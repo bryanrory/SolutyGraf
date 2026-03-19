@@ -173,7 +173,7 @@
 
   async function loadSiteData() {
     try {
-      await Promise.all([loadSiteSettings(), loadAmbientes()]);
+      await Promise.all([loadSiteSettings(), loadAmbientes(), loadReviews()]);
     } catch (err) {
       console.error('Error loading site data:', err);
     }
@@ -428,6 +428,34 @@
       initAnimations();
     } catch (err) {
       console.error('Ambientes load error:', err);
+    }
+  }
+
+  // Load Reviews (Elfsight widget)
+  async function loadReviews() {
+    try {
+      var settings = await api.get('/api/settings');
+      if (!settings || !settings.google_reviews_enabled || !settings.elfsight_code) return;
+
+      var section = document.querySelector('.avaliacoes');
+      if (section) section.style.display = '';
+
+      var widget = document.getElementById('avaliacoesWidget');
+      if (widget) {
+        widget.innerHTML = settings.elfsight_code;
+        var scripts = widget.querySelectorAll('script');
+        scripts.forEach(function (oldScript) {
+          var newScript = document.createElement('script');
+          if (oldScript.src) {
+            newScript.src = oldScript.src;
+          } else {
+            newScript.textContent = oldScript.textContent;
+          }
+          oldScript.parentNode.replaceChild(newScript, oldScript);
+        });
+      }
+    } catch (err) {
+      console.error('Reviews load error:', err);
     }
   }
 })();

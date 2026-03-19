@@ -31,6 +31,10 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         Serviços
       </a>
+      <a href="#" class="sidebar-link" data-section="reviews">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Avaliações
+      </a>
     </nav>
     <div class="sidebar-footer">
       <button class="btn-logout" id="btnLogout">Sair</button>
@@ -186,6 +190,31 @@
         </div>
       </div>
 
+      <!-- ==================== AVALIAÇÕES ==================== -->
+      <div class="admin-section" id="sec-reviews">
+        <div class="form-section">
+          <h3>Avaliações do Google (Elfsight)</h3>
+          <p class="photos-hint">Use o <a href="https://elfsight.com/google-reviews-widget/" target="_blank" style="color:#00b4d8">Elfsight</a> para criar um widget de avaliações do Google. Depois cole o código embed abaixo.</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <div class="toggle-wrap">
+                <label class="toggle">
+                  <input type="checkbox" id="reviewsEnabled">
+                  <span class="toggle-slider"></span>
+                </label>
+                <span class="toggle-label">Exibir avaliações no site</span>
+              </div>
+            </div>
+            <div class="form-group form-group-full">
+              <label>Código Embed do Elfsight</label>
+              <textarea id="elfsightCode" rows="5" placeholder='Cole aqui o código do Elfsight. Ex: <script src="https://static.elfsight.com/platform/platform.js" async></script><div class="elfsight-app-xxxxx"></div>'></textarea>
+            </div>
+          </div>
+          <div class="btn-group">
+            <button type="button" class="btn btn-primary" id="btnSaveReviewSettings">Salvar Configurações</button>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

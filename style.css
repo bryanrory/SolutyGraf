@@ -270,6 +270,11 @@ nav {
   letter-spacing: 2px;
 }
 
+.hero .brand-nome {
+  -webkit-text-stroke: 1.5px currentColor;
+  paint-order: stroke fill;
+}
+
 /* ========================================
    BUTTONS
    ======================================== */

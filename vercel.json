@@ -1,7 +1,6 @@
 {
-  "trailingSlash": true,
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "/api/$1" },
-    { "source": "/ambiente/:slug/", "destination": "/ambiente.html" }
+    { "source": "/ambiente/:slug/", "destination": "/ambiente.html" },
+    { "source": "/ambiente/:slug", "destination": "/ambiente.html" }
   ]
 }
